@@ -16,13 +16,10 @@ class vxtwitter(commands.Cog):
                 if url.startswith("twitter.com") or url.startswith("x.com"):
                     new_url = url.replace(url.split(".com")[0], "vxtwitter")
                     new_content = new_content.replace(url, new_url)
-
-                webhook = await message.channel.create_webhook(name=message.name)
-                await webhook.send(
-                    str(new_content), username=message.name, avatar_url=message.avatar_url)
-                webhooks = await message.channel.webhooks()
-                for webhook in webhooks:
-                        await webhook.delete()
+            # Use the channel object to send the message
+            await message.channel.send(
+                str(new_content), username=message.author.name, avatar_url=message.author.avatar_url
+            )
 
 def setup(bot):
     bot.add_cog(vxtwitter(bot))

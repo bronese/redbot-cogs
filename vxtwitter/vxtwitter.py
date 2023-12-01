@@ -15,8 +15,9 @@ class vxtwitter(commands.Cog):
         if any(url.startswith(("https://twitter.com", "https://x.com")) for url in message.content.split()):   
             new_content = message.content
             for url in message.content.split():
-                if url.startswith("twitter.com") or url.startswith("x.com"):
-                    new_url = url.replace(url.split(".com")[0], "vxtwitter")
+                if url.startswith(("https://twitter.com", "https://x.com")):
+                    message.channel.send("link found")
+                    new_url = url.replace("twitter.com", "vxtwitter.com").replace("x.com", "vxtwitter.com")
                     new_content = new_content.replace(url, new_url)
                     await message.channel.send(new_content)
                     webhooks = await message.channel.webhooks()

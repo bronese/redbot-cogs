@@ -1,7 +1,7 @@
 from redbot.core import commands
 
 class vxtwitter(commands.Cog):
-    """Replaces vxtwitter"""
+    """replaces vxtwitter"""
 
     def __init__(self, bot):
         self.bot = bot
@@ -18,7 +18,12 @@ class vxtwitter(commands.Cog):
                     new_url = url.replace(url.split(".com")[0], "vxtwitter")
                     new_content = new_content.replace(url, new_url)
 
-            await message.channel.send(new_content, username=message.author.name, avatar_url=message.author.avatar_url)
+                webhook = await message.channel.create_webhook(name=message.name)
+                await webhook.send(
+                    str(new_content), username=message.name, avatar_url=message.avatar_url)
+                webhooks = await message.channel.webhooks()
+                for webhook in webhooks:
+                        await webhook.delete()
 
 def setup(bot):
     bot.add_cog(vxtwitter(bot))

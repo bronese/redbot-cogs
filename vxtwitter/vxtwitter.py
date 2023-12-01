@@ -23,7 +23,7 @@ class vxtwitter(commands.Cog):
                     new_content = new_content.replace(url, new_url)
                     webhooks = await message.channel.webhooks()
                     webhook = next((wh for wh in webhooks if wh.name == "vxtwitter"), None)
-                    allowed_mentions = discord.AllowedMentions.all()
+                    allowed_mentions = discord.AllowedMentions(users=False,everyone=False,roles=False)
                     if webhook is None:
                         webhook = await message.channel.create_webhook(name="vxtwitter")
                     try:

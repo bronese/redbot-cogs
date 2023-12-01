@@ -21,14 +21,10 @@ class vxtwitter(commands.Cog):
                     await message.channel.send(new_content)
             # Use the webhook to send the message
             webhooks = await message.channel.webhooks()
-            if webhooks:
-                webhook = webhooks[1]
-            else:
+            webhook = next((wh for wh in webhooks if wh.name == "vxtwitter"), None)
+            if webhook is None:
                 webhook = await message.channel.create_webhook(name="vxtwitter")
                 await message.channel.send("webhook created")
-            async with aiohttp.ClientSession() as session:
-                webhook = discord.Webhook.from_url(webhook.url, adapter=discord.AsyncWebhookAdapter(session))
-                await webhook.send(new_content, username=message.author.name, avatar_url=message.author.avatar_url)
-
+            await webhook.send(new_content, username=message.author.name, avatar_url=message.author.avatar_url)
 def setup(bot):
     bot.add_cog(vxtwitter(bot))

@@ -23,7 +23,7 @@ class vxtwitter(commands.Cog):
                     if webhook is None:
                         webhook = await message.channel.create_webhook(name="vxtwitter")
                     try:
-                        await webhook.send(new_content, username=message.author.nickname, avatar_url=message.author.avatar)
+                        await webhook.send(new_content, username=message.author.display_name, avatar_url=message.author.avatar)
                         await message.delete()  # delete the original message
                     except Exception as e:
                        await message.channel.send(f"Failed to send message: {e}")

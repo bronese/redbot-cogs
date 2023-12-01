@@ -1,4 +1,4 @@
-from redbot.core import commands
+from redbot.core import commands, Webhook
 
 class vxtwitter(commands.Cog):
     """replaces vxtwitter"""
@@ -10,7 +10,6 @@ class vxtwitter(commands.Cog):
     async def on_message(self, message):
         if message.author.bot:
             return
-
         if any(url.startswith(("twitter.com", "x.com")) for url in message.content.split()):
             new_content = message.content
             for url in message.content.split():

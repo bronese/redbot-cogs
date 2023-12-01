@@ -16,7 +16,6 @@ class vxtwitter(commands.Cog):
             new_content = message.content
             for url in message.content.split():
                 if url.startswith(("https://twitter.com", "https://x.com")):
-                    await message.channel.send("link found")
                     new_url = url.replace("twitter.com", "vxtwitter.com").replace("x.com", "vxtwitter.com")
                     new_content = new_content.replace(url, new_url)
                     webhooks = await message.channel.webhooks()
@@ -25,7 +24,7 @@ class vxtwitter(commands.Cog):
                         webhook = await message.channel.create_webhook(name="vxtwitter")
                     try:
                         await webhook.send(new_content, username=message.author.name, avatar_url=message.author.avatar)
-                        await message.delete(message.author)  # delete the original message
+                        await message.delete()  # delete the original message
                     except Exception as e:
                        await message.channel.send(f"Failed to send message: {e}")
 def setup(bot):

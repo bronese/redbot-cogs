@@ -1,7 +1,7 @@
 from redbot.core import commands
 
 class vxtwitter(commands.Cog):
-    """replaces vxtwitter"""
+    """Replaces vxtwitter"""
 
     def __init__(self, bot):
         self.bot = bot
@@ -19,7 +19,6 @@ class vxtwitter(commands.Cog):
                     new_content = new_content.replace(url, new_url)
 
             await message.channel.send(new_content, username=message.author.name, avatar_url=message.author.avatar_url)
-
 
 def setup(bot):
     bot.add_cog(vxtwitter(bot))

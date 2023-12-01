@@ -25,7 +25,7 @@ class vxtwitter(commands.Cog):
                         webhook = await message.channel.create_webhook(name="vxtwitter")
                         await message.channel.send("webhook created")
                     try:
-                        await webhook.send(new_content, username=message.author.name, avatar_url=message.author.avatar_url)
+                        await webhook.send(new_content, username=message.author.name, avatar_url=message.author.avatar)
                     except Exception as e:
                        await message.channel.send(f"Failed to send message: {e}")
 def setup(bot):

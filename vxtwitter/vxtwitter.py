@@ -19,12 +19,14 @@ class vxtwitter(commands.Cog):
                     message.channel.send("link found")
                     new_url = url.replace("twitter.com", "vxtwitter.com").replace("x.com", "vxtwitter.com")
                     new_content = new_content.replace(url, new_url)
-                    await message.channel.send(new_content)
                     webhooks = await message.channel.webhooks()
                     webhook = next((wh for wh in webhooks if wh.name == "vxtwitter"), None)
                     if webhook is None:
                         webhook = await message.channel.create_webhook(name="vxtwitter")
                         await message.channel.send("webhook created")
-                    await webhook.send(new_content, username=message.author.name, avatar_url=message.author.avatar_url)
+                    try:
+                        await webhook.send(new_content, username=message.author.name, avatar_url=message.author.avatar_url)
+                    except Exception as e:
+                       await message.channel.send(f"Failed to send message: {e}")
 def setup(bot):
     bot.add_cog(vxtwitter(bot))

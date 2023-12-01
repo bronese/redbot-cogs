@@ -22,7 +22,7 @@ class vxtwitter(commands.Cog):
             # Use the webhook to send the message
             webhooks = await message.channel.webhooks()
             if webhooks:
-                webhook = webhooks[0]
+                webhook = webhooks[1]
             else:
                 webhook = await message.channel.create_webhook(name="vxtwitter")
                 await message.channel.send("webhook created")

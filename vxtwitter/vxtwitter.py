@@ -19,7 +19,7 @@ class vxtwitter(commands.Cog):
                 replied_message = await message.channel.fetch_message(message.reference.message_id)
             for url in message.content.split():
                 if url.startswith(("https://twitter.com", "https://x.com")):
-                    new_url = url.replace("twitter.com", "vxtwitter.com").replace("x.com", "vxtwitter.com")
+                    new_url = url.replace("twitter.com", "fxtwitter.com").replace("x.com", "fxtwitter.com")
                     new_content = new_content.replace(url, new_url)
                     webhooks = await message.channel.webhooks()
                     webhook = next((wh for wh in webhooks if wh.name == "vxtwitter"), None)

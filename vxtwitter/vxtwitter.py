@@ -19,11 +19,11 @@ class vxtwitter(commands.Cog):
                     new_url = url.replace(url.split(".com")[0], "vxtwitter")
                     new_content = new_content.replace(url, new_url)
                     await message.channel.send(new_content)
-                webhooks = await message.channel.webhooks()
-                webhook = next((wh for wh in webhooks if wh.name == "vxtwitter"), None)
-                if webhook is None:
-                    webhook = await message.channel.create_webhook(name="vxtwitter")
-                    await message.channel.send("webhook created")
-                await webhook.send(new_content, username=message.author.name, avatar_url=message.author.avatar_url)
+                    webhooks = await message.channel.webhooks()
+                    webhook = next((wh for wh in webhooks if wh.name == "vxtwitter"), None)
+                    if webhook is None:
+                        webhook = await message.channel.create_webhook(name="vxtwitter")
+                        await message.channel.send("webhook created")
+                    await webhook.send(new_content, username=message.author.name, avatar_url=message.author.avatar_url)
 def setup(bot):
     bot.add_cog(vxtwitter(bot))

@@ -23,10 +23,11 @@ class vxtwitter(commands.Cog):
                     new_content = new_content.replace(url, new_url)
                     webhooks = await message.channel.webhooks()
                     webhook = next((wh for wh in webhooks if wh.name == "vxtwitter"), None)
+                    allowed_mentions = discord.AllowedMentions.all()
                     if webhook is None:
                         webhook = await message.channel.create_webhook(name="vxtwitter")
                     try:
-                        await webhook.send(new_content, username=message.author.display_name, avatar_url=message.author.avatar, reference=replied_message)
+                        await webhook.send(new_content, username=message.author.display_name, avatar_url=message.author.avatar, allowed_mentions=allowed_mentions, wait=1)
                         await message.delete()  # delete the original message
                     except Exception as e:
                         await message.channel.send(f"Failed to send message: {e}")

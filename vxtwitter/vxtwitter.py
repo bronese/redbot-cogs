@@ -1,7 +1,7 @@
 from redbot.core import commands
 
-class MyCog(commands.Cog):
-    """My custom cog"""
+class vxtwitter(commands.Cog):
+    """replaces vxtwitter"""
 
     def __init__(self, bot):
         self.bot = bot

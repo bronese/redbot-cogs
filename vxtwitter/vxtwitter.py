@@ -10,11 +10,10 @@ class vxtwitter(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        await message.channel.send("message triggered")
         if message.author.bot:
             await message.channel.send("bot ignored")
             return
-        if any(url.startswith(("twitter.com", "x.com")) for url in message.content.split()):
+        if any(url.startswith(("https://twitter.com", "https://x.com")) for url in message.content.split()):   
             await message.channel.send("triggered 2")
             new_content = message.content
             for url in message.content.split():

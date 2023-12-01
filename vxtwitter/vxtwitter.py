@@ -11,6 +11,7 @@ class vxtwitter(commands.Cog):
         if message.author.bot:
             return
         if any(url.startswith(("twitter.com", "x.com")) for url in message.content.split()):
+            await message.channel.send("hi")
             new_content = message.content
             for url in message.content.split():
                 if url.startswith("twitter.com") or url.startswith("x.com"):

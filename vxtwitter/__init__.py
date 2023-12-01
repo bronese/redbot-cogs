@@ -1,5 +1,5 @@
-from .mycog import MyCog
+from .vxtwitter import MyCog
 
 
 async def setup(bot):
-    await bot.add_cog(MyCog(bot))
+    await bot.add_cog(vxtwitter(bot))

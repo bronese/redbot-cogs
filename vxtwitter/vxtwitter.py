@@ -1,4 +1,4 @@
-from redbot.core import commands, Webhook
+from redbot.core import commands
 
 class vxtwitter(commands.Cog):
     """replaces vxtwitter"""

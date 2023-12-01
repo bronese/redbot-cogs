@@ -1,4 +1,4 @@
-from .vxtwitter import MyCog
+from .vxtwitter import vxtwitter
 
 
 async def setup(bot):

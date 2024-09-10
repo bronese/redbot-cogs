@@ -12,13 +12,13 @@ class vxtiktok(commands.Cog):
     async def on_message(self, message):
         if message.author.bot:
             return
-        if any(url.__contains__(("tiktok.com")) for url in message.content.split()):
+        if any("tiktok.com" in url) for url in message.content.split()):
             new_content = message.content
             replied_message = None  # Initialize variable to store replied message
             if message.reference and message.reference.message_id:
                 replied_message = await message.channel.fetch_message(message.reference.message_id)
             for url in message.content.split():
-                if url.__contains__(("tiktok.com")):
+                if "tiktok.com" in url:
                     new_url = url.replace("tiktok.com", "vxtiktok.com")
                     new_content = new_content.replace(url, new_url)
                     webhooks = await message.channel.webhooks()

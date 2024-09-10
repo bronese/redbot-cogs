@@ -18,7 +18,7 @@ class vxtiktok(commands.Cog):
             if message.reference and message.reference.message_id:
                 replied_message = await message.channel.fetch_message(message.reference.message_id)
             for url in message.content.split():
-                if url.__contains————(("tiktok.com")):
+                if url.__contains__(("tiktok.com")):
                     new_url = url.replace("tiktok.com", "vxtiktok.com")
                     new_content = new_content.replace(url, new_url)
                     webhooks = await message.channel.webhooks()

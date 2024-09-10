@@ -25,7 +25,7 @@ class vxtiktok(commands.Cog):
                     webhook = next((wh for wh in webhooks if wh.name == "vxtiktok"), None)
                     # allowed_mentions = discord.AllowedMentions(users=False,everyone=False,roles=False)
                     if webhook is None:
-                        webhook = await message.channel.create_webhook(name="vxtwitter")
+                        webhook = await message.channel.create_webhook(name="vxtiktok")
                     try:
                         await webhook.send(new_content, username=message.author.display_name, avatar_url=message.author.avatar, wait=1)
                         await message.delete()  # delete the original message

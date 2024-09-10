@@ -1,0 +1,2 @@
+Red-DiscordBot
+discord.py

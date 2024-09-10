@@ -1,7 +1,7 @@
 from redbot.core import commands
 import discord
 
-class DdInstagram(commands.Cog):
+class ddinstagram(commands.Cog):
     """replaces instagram.com with ddinstagram.com"""
 
     def __init__(self, bot):

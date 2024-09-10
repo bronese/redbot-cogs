@@ -1,7 +1,7 @@
 from redbot.core import commands
 import discord
 
-class Vxtiktok(commands.Cog):
+class vxtiktok(commands.Cog):
     """replaces instagram.com with ddinstagram.com"""
 
     def __init__(self, bot):

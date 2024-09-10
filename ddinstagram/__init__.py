@@ -1,4 +1,4 @@
-from .ddinstagram import DdInstagram
+from .ddinstagram import ddinstagram
 
 
 async def setup(bot):

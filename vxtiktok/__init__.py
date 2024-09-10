@@ -1,4 +1,4 @@
-from .vxtiktok import Vxtiktok
+from .vxtiktok import vxtiktok
 
 
 async def setup(bot):

@@ -12,13 +12,11 @@ class vxtiktok(commands.Cog):
     async def on_message(self, message):
         if message.author.bot:
             return
-        # Check if "instagram.com" is in any URL in the message content
-        if any("instagram.com" in url for url in message.content.split()):
+        if any("tiktok.com" in url for url in message.content.split()):
             new_content = message.content
             replied_message = None  # Initialize variable to store replied message
             if message.reference and message.reference.message_id:
                 replied_message = await message.channel.fetch_message(message.reference.message_id)
-            # Replace "tiktok.com" with "instagram.com" in the message content
             for url in message.content.split():
                 if "tiktok.com" in url:
                     new_url = url.replace("tiktok.com", "vxtiktok.com")

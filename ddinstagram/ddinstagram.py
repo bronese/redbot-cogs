@@ -38,4 +38,4 @@ class ddinstagram(commands.Cog):
                     await message.channel.send(f"Failed to send message: {e}")
 
 def setup(bot):
-    bot.add_cog(DdInstagram(bot))
+    bot.add_cog(ddinstagram(bot))
